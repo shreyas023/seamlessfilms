@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Films | Contact</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/f4f79a9cc1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav id="navigation">
+        <div class="logo">
+            <a href="/"><img src="./logo1.png" alt="Seamless Films" class="logo"></a>
+        </div>
+        <div>
+            <ul class="nav-items">
+
+                <a href="/">
+                    <li class="nav-item">Company</li>
+                </a>
+
+                <li class="nav-item">
+                    <select name="products" id="products">
+                        <option value="">Products</option>
+                        <option value="clearppf">Clear PPF</option>
+                        <option value="matteppf">Matte PPF</option>
+                    </select>
+                </li>
+
+                <a href="/blog">
+                    <li class="nav-item">Blog</li>
+                </a>
+                <a href="/warranty">
+                    <li class="nav-item">Warranty</li>
+                </a>
+    
+                <a href="/contact">
+                    <li class="nav-item">Contact us</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contact">
+        <div class="contact1">
+            <h1>Contact Us</h1>
+            <h2>We are here to help. Please contact us, don't hesitate to get in touch.</h2>
+        </div>
+        <div class="contact1">
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h2>Address</h2>
+                </div>
+                <div class="info">
+                    
+                    <p>
+                        <a href="https://maps.app.goo.gl/thtmbFg1Ztcc4zPu6">
+                            Shop no 16, Kharghar Station Road Vasundhara chs, 17, Sector 8, Kharghar, Navi Mumbai, 410210
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-phone"></i>
+                    <h2>Phone</h2>
+                </div>
+                <div class="info">
+                    
+                    <p><a href="tel:+919876543210">+91 9876543210</a></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-envelope"></i>
+                    <h2>Email</h2>
+                </div>
+                <div class="info">
+                    
+                    <p><a href="mailto:info@seamlessfilms.com">info@seamlessfilms.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact" style="align-items: flex-start;">
+        <div class="contactform">
+            <h1>Get in touch</h1>
+            <form action="/submit" method="post">
+                <table>
+                    <tr>
+                        <td><h2>Name:</h2></td>
+                        <td><input type="text" name="name" id="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Email:</h2></td>
+                        <td><input type="email" name="email" id="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Contact:</h2></td>
+                        <td><input type="tel" name="contact" id="contact" required></td>
+                    </tr>
+                </table>
+                
+                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="companyinfo">
+            <a href="/"><img src="logo.png" alt="Seamless Films"></a>
+            <span>Paint Protection Films</span>
+            <br>
+            <p>Seamless Films is a leading provider of paint protection films. We offer a diverse range of products to
+                meet the diverse needs of our customers. Our team of experts has years of experience in the field. We
+                would like to welcome you to Seamless Films.</p>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/">Company</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/warranty">Warranty</a></li>
+                <li><a href="/contact">Contact us</a></li>
+            </ul>
+        </div>
+
+        <div class="address">
+            <p>Address: Shop no 16, Kharghar Station Road Vasundhara chs, 17, Sector 8, Kharghar, Navi Mumbai,
+                Maharashtra 410210</p>
+            <p>Phone: <a href="tel:+919920539360">9920539360</a></p>
+            <p>Email: <a href="mailto:info@seamlessfilms.com">info@seamlessfilms.com</a></p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <p>Copyright &copy; 2024 Seamless Films. All Rights Reserved. </p>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+    $(window).on('scroll', function () {
+
+        if ($(this).scrollTop() > 200) {
+            $('#navigation').css('background-color', 'black');
+            $('#navigation').css('transition', 'all 2s');
+
+        }
+        else {
+            $('#navigation').css('background-color', 'transparent');
+            $('#navigation').css('transition', 'all 2s');
+        }
+    });
+
+    $('#products').change(function () {
+            var value = $(this).val();
+            if (value === 'clearppf') {
+                window.location.href = '/clearppf';
+            } else if (value === 'matteppf') {
+                window.location.href = '/matteppf';
+            }
+        });
+</script>
+</body>
+</html>
