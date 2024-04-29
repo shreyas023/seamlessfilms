@@ -183,6 +183,19 @@ nav {
     height: auto;
     display: block;
     background-color: white;
+    animation: hover 2s infinite ease;
+}
+
+@keyframes hover {
+    0% {
+        transform: translateY(-15px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
 }
 
 .right {
@@ -517,12 +530,8 @@ footer{
     justify-content: center;
     align-items: center;
 }
-.warrantyform{
-    margin-left: 600px;
-}
-.hwarranty{
-    text-align: center;
-}/* contact  */
+
+/* contact  */
 .contact{
     display: flex;
     margin-top: 70px;
@@ -638,7 +647,135 @@ footer{
     }
 }
 
+/* warranty  */
+.warrantyform{
+    display: flex;
+    height: 160vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    z-index: -1;
+}
 
+.warrantyform form{
+    width: 80vw;
+}
+.warrantyform form table{
+    width: 100%;
+}
+.warrantyform form table td{
+    padding: 10px 20px;
+    margin: 0 25px;
+}
+
+.warrantyform form table input[type = "text"]{
+    width: 100%;
+    padding: 5px 10px;
+    background: transparent;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.459);
+    color: white;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+}
+
+.warrantyform form table input[type = "text"]:focus{
+    outline: none;
+    border-bottom: 2px solid white;
+}
+
+.warrantyform form input[type="date"]{
+    width: 25%;
+    padding: 5px 10px;
+    background: transparent;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.459);
+    color: rgba(255, 255, 255, 0.536);
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+}
+.warrantyform form input[type="date"]:hover{
+    outline: none;
+    background-color: white;
+    color: #000;
+    border-radius: 15px;
+}
+
+.warrantyform form input[type="radio"]{
+    margin: 10px 10px 0px 0;
+    color: white;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.warrantyform form button[type="submit"]{
+    padding: 10px 20px;
+    margin: 20px 0;
+    align-self: flex-end;
+    font-size: 20px;
+    color: white;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.522);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.warrantyform form button[type="submit"]:hover{
+    background: white;
+    color: black;
+}
+
+.warrantyform form input[type="file"]{
+    margin: 10px 10px 0px 0;
+    color: white;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.522);
+}
+
+
+
+
+/* blog  */
+.par{
+  margin: auto;
+  
+  
+}
+.blog{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    padding: auto;
+    justify-content: center;
+    
+    width: 80%;
+    height: 300px;
+    border: 5px solid white;
+    border-radius: 10px;
+
+    
+
+}
+
+.post1{
+    padding: 10px;
+    overflow: auto;
+    margin-top: 13px;
+}
+
+.img-blog1{
+    float: left;
+    margin-right: 10px;
+   
+}
 
 
 

@@ -12,18 +12,40 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendEmail = async (formData) => {
+const sendEmail = async (formData, subject) => {
   try {
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'shrushti.samant@gmail.com,chunamariom@gmail.com', // Replace with recipient emails
-      subject: 'Email Form Submission',
+      to: `
+        ${subject === 'Email Form Submission' ? 'shrushti.samant@gmail.com' : 'chunamariom@gmail.com'}`, // Replace with recipient emails
+      subject: subject, // Set subject based on form
       text: `
-        Form details:
+        ${subject === 'Email Form Submission' ? `
+          Form details:
 
-        Name: ${formData.name}
-        Email: ${formData.email}
-        Contact: ${formData.contact}
+          Name: ${formData.name}
+          Email: ${formData.email}
+          Contact: ${formData.contact}
+        ` : `
+          Warranty Form Submission:
+
+          Customer Details:
+
+          Name: ${formData.fname} ${formData.lname}
+          Email: ${formData.wemail}
+          Address: ${formData.saddress}
+          City: ${formData.city}
+          State: ${formData.state}
+          ZIP Code: ${formData.zip}
+
+          Vehicle Details:
+
+          Vehicle Model: ${formData.vmodel}
+          Vehicle Make: ${formData.vmake}
+          Service Date: ${formData.date}
+
+          Product Type: ${formData.opt1}
+        `}
       `
     };
 
@@ -69,18 +91,31 @@ app.get('/clearppf', (req, res) => {
     res.sendFile('clearppf.html', { root: 'client' }); // Serve clearppf.html from client
 });
 
-// Route to handle form submission (assuming the form is in contact.html)
+// Route to handle form submission from contact.html
 app.post('/submit', async (req, res) => {
   const { name, email, contact } = req.body;
 
   try {
-    await sendEmail({ name, email, contact });
-    // res.status(200).send('Form submitted successfully!');
-    res.sendFile('thankyou.html', { root: 'client' });
+    await sendEmail({ name, email, contact }, 'Email Form Submission');
+    res.sendFile('thankyou.html', { root: 'client' }); // Redirect to thank you page
   } catch (error) {
     console.error(error);
     res.status(500).send('Error submitting form.');
   }
 });
 
-app.listen(3000, () => console.log('Server listening on port http://localhost:3000'));
+// Route to handle form submission from warranty.html
+app.post('/claim',  async (req, res) => {
+  const { fname, lname, saddress, city, state, zip, wemail, vmodel, vmake, date, opt1 } = req.body;
+  
+  try {
+    await sendEmail({ fname, lname, saddress, city, state, zip, wemail, vmodel, vmake, date, opt1}, 'Warranty Form Submission');
+    
+    res.sendFile('thankyou.html', { root: 'client' }); // Redirect to thank you page
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error submitting form.');
+  }
+});
+
+app.listen(process.env.PORT, () => console.log(`Server listening on port http://localhost:${process.env.PORT}`));

@@ -37,7 +37,7 @@
                 <a href="/warranty">
                     <li class="nav-item">Warranty</li>
                 </a>
-    
+
                 <a href="/contact">
                     <li class="nav-item">Contact us</li>
                 </a>
@@ -45,33 +45,86 @@
         </div>
     </nav>
     <div class="warrantyform">
-    <!--Warranty Form-->
-    <form action="" id="MyForm" style="margin-top: 100px;">
-        <table> 
-            <tr><td><h3 class="warranty">Customer Details</h3></td></tr>
-            <tr><td><input type="text" name="fname" id="fname" placeholder="First Name" required class="line-input"></td>
-            <td><input type="text" name="lname" id="lname" placeholder="Last Name" required class="line-input"></td></tr>
-            <tr><td colspan="2"><input type="text" name="saddress" id="saddress" placeholder="Address" required class="line-input"></td></tr>
-            <tr><td><input type="text" name="city" id="city" placeholder="City" required class="line-input"></td>
-            <td><input type="text" name="state" id="state" placeholder="State"required class="line-input"></td></tr>
-            <tr><td><input type="text" name="zip" id="zip" placeholder="ZIP Code" required class="line-input"></td>
-            <td><input type="text" name="email" id="email" placeholder="Email Address" required class="line-input"></td></tr>
-            <tr><td><h3>Vehicle Details</h3></td></tr>
-            <tr><td><input type="text" name="vmodel" id="vmodel" placeholder="Vehicle Model" required class="line-input"></td>
-            <td><input type="text" name="vmake" id="vmake" placeholder="Vehicle Make" placeholder="Vehicle Make" required class="line-input"></td></tr>  
-            <tr><td><input type="date" name="date" id="date" placeholder="Installation Date" class="line-input"></td></tr>      
-            <tr><td><h5>Product Type</h5></td></tr> 
-            <tr><td><input type="radio" id="opt1" name="opt1">Clear PPF - 5 years</td></tr>
-            <tr><td><input type="radio" id="opt2" name="opt2">Clear PPF - 7 years</td></tr>
-            <tr><td><input type="radio" name="opt3" id="opt3">Matte PPF</td></tr>
-            <tr><td><button type="submit">Register Warranty</button></td></tr>
-        </table>
-    </form>
-</div>
+        <h2>Fill out the form below to get your warranty. We will get back to you shortly.</h2>
+        <!--Warranty Form-->
+        <form action="/claim" method="post">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h2>Customer Details</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="fname" id="fname" placeholder="First Name" required class="line-input">
+                    </td>
+                    <td><input type="text" name="lname" id="lname" placeholder="Last Name" required class="line-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="text" name="saddress" id="saddress" placeholder="Address" required
+                            class="line-input"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="city" id="city" placeholder="City" required class="line-input"></td>
+                    <td><input type="text" name="state" id="state" placeholder="State" required class="line-input"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="zip" id="zip" placeholder="ZIP Code" required class="line-input"></td>
+                    <td><input type="text" name="wemail" id="wemail" placeholder="Email Address" required
+                            class="line-input"></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <h2>Vehicle Details</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="vmodel" id="vmodel" placeholder="Vehicle Model" required
+                            class="line-input"></td>
+                    <td><input type="text" name="vmake" id="vmake" placeholder="Vehicle Make" placeholder="Vehicle Make"
+                            required class="line-input"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="date" name="date" id="date" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h2>Product Type</h2>
+                    </td>
+                </tr>
 
-    
+                <tr>
+                    <td colspan="2">
+                        <input type="radio"  value="Clear PPF - 5 years" name="opt1" required>Clear PPF - 5 years&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  value="Clear PPF - 7 years" name="opt1" required>Clear PPF - 7 years&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="opt1" value="Matte PPF" required>Matte PPF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
+                    </td>
+                </tr>
 
-    
+                <!-- <tr>
+                    <td colspan="2"><h2>Upload 3 images of your vehice</h2></td>
+                </tr> -->
+                <!-- <tr>
+                    <td colspan="2">
+                        <input type="file" name="img1" required>
+                        <input type="file" name="img2" required>
+                        <input type="file" name="img3" required>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td colspan="2"><button type="submit">Register Warranty</button></td>
+                </tr>
+                
+            </table>
+        </form>
+    </div>
+
+
+
+
     <footer>
         <div class="companyinfo">
             <a href="/"><img src="logo.png" alt="Seamless Films"></a>
@@ -108,10 +161,11 @@
         <p>Copyright &copy; 2024 Seamless Films. All Rights Reserved. </p>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(window).on('scroll', function () {
 
-            if ($(this).scrollTop() > 300) {
+            if ($(this).scrollTop() > 50) {
                 $('#navigation').css('background-color', 'black');
                 $('#navigation').css('transition', 'all 2s');
 
